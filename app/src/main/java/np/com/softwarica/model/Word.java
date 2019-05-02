@@ -1,4 +1,4 @@
-package np.com.softwarica;
+package np.com.softwarica.model;
 
 public class Word {
 

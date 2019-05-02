@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import np.com.softwarica.Word;
+import np.com.softwarica.model.Word;
 
 public class MyHelper extends SQLiteOpenHelper {
 
@@ -68,4 +68,19 @@ public class MyHelper extends SQLiteOpenHelper {
         }
         return dictionaryList;
     }
+
+    public List<Word> getWordByName(String word,SQLiteDatabase db){
+
+        List<Word> dictionaryList = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM tblWord WHERE word = ?",new String[]{word});
+
+        if (cursor.getCount() > 0  ){
+            while (cursor.moveToNext()){
+                dictionaryList.add(new Word(cursor.getInt(0), cursor.getString(1), cursor.getString(2) ));
+            }
+        }
+        return dictionaryList;
+
+    }
+
 }
