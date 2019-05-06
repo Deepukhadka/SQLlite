@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etWord,etMeaning;
     Button btnAddWord,openListWord;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
